@@ -1,0 +1,22 @@
+{
+    "name": "Meu Ambiente SQL",
+    // Aponta para o nosso arquivo docker-compose.
+    "dockerComposeFile": "docker-compose.yml",
+
+    // Define qual serviço do docker-compose contém as ferramentas de desenvolvimento.
+    "service": "app",
+
+    // Mapeia a pasta do projeto para dentro do contêiner.
+    "workspaceFolder": "/workspace",
+
+    // Lista de extensões do VS Code para instalar automaticamente.
+    "customizations": {
+        "vscode": {
+            "extensions": [
+                "mtxr.sqltools",
+                "mtxr.sqltools-driver-mysql",
+                "ms-azuretools.vscode-docker" // Útil para ver os contêineres rodando
+            ]
+        }
+    }
+}

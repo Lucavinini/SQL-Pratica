@@ -1,0 +1,29 @@
+version: '3.8'
+
+services:
+  # Este é o serviço principal, onde seu terminal e o VS Code vão rodar.
+  app:
+    # Usamos uma imagem base do Codespaces que já vem com várias ferramentas.
+    image: mcr.microsoft.com/devcontainers/base:ubuntu
+
+    # Mantém o contêiner rodando.
+    command: sleep infinity
+
+    # Monta o código do seu projeto dentro do contêiner.
+    volumes:
+      - ..:/workspace:cached
+
+  
+  db:
+    image: mysql:8.0
+    restart: unless-stopped
+    environment:
+      # IMPORTANTE: Defina a senha do usuário 'root' do MySQL aqui.
+      MYSQL_ROOT_PASSWORD: '850855' 
+    volumes:
+      # Este volume garante que seus dados não sejam perdidos ao reiniciar o Codespace.
+      - mysql-data:/var/lib/mysql
+
+# Define o volume para persistência dos dados.
+volumes:
+  mysql-data:
