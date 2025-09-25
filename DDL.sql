@@ -33,3 +33,15 @@ CREATE TABLE IF NOT EXISTS Aluno(
     id_turma INT, -- Coluna que vai se conectar Aluno com Turma.
     FOREIGN KEY (id_turma) REFERENCES Turma(id) -- Chave estrangeira. Todo campo id_turma vai receber o valor que tem em Turma(id)
 );
+
+CREATE TABLE IF NOT EXISTS Professor(
+
+    ra PRIMARY KEY INT AUTO_INCREMENT;
+    nome VARCHAR(30) NOT NULL;
+    disciplina VARCHAR(30) NOT NULL;
+    sexo VARCHAR(14) NOT NULL;
+    id_turma_professor INT;
+
+    FOREIGN KEY (id_turma_professor) REFERENCES Turma(id)
+
+);
